@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latin-Cyrillic by KhiU</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(36, 95, 95);
+}
+.container{
+    width: 80%;
+    height: 100vh;
+    margin: auto;    
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    color: rgba(255, 255, 255, 0.651);
+}
+header .container #encrypt{ /*shu yerda shifrlash*/
+    display: none;
+    flex-direction: column;
+}
+header .container h1{
+    margin-bottom: 40px;
+    padding: 15px 0px;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 10px 15px white;
+}
+header .container label{
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+header .container textarea{
+    font-size: 25px;
+    background-color: rgb(54, 58, 45);
+    color: rgba(255, 255, 255, 0.918);
+    margin-bottom: 15px;
+    padding: 10px 0px 0px 10px;
+}
+/* header .container input{
+    width: 20%;
+    font-size: 20px;
+    margin-bottom: 15px;   
+    padding: 5px;
+} */
+header .container textarea::placeholder{
+    color: rgb(149, 196, 207);    
+}
+header .container #calculate{
+    display: block;
+    width: 20%;
+    margin-left: 150px;
+    /* padding: 0px 0px 0px 0px; */
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px 5px #ffffff;
+    border: 2px solid rgb(98, 180, 98);
+    cursor: pointer;
+}
+header .container #erase{
+    display: block;
+    width: 20%;
+    margin-left: 150px;
+    /* padding: 0px 0px 0px 0px; */
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px 5px #ffffff;
+    border: 2px solid rgb(98, 180, 98);
+    cursor: pointer;
+}
+header .container #encrypt #crypto-result {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 58, 45);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+    
+}
+header .container #decrypt{  /* shu yerdan decode qilish boshlandi*/
+    display: none;
+    flex-direction: column;
+}
+
+header .container #decypher{
+    display: block;
+    width: 20%;
+    margin-left: 150px;
+    /* padding: 0px 0px 0px 0px; */
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px 5px #ffffff;
+    border: 2px solid rgb(98, 180, 98);
+    cursor: pointer;
+}
+header .container #erase2{
+    display: block;
+    width: 20%;
+    margin-left: 150px;
+    /* padding: 0px 0px 0px 0px; */
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px 5px #ffffff;
+    border: 2px solid rgb(98, 180, 98);
+    cursor: pointer;
+}
+header .container #decrypt #decrypto-result {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(54, 58, 45);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+}
+.d-flex{
+    display: flex;
+}
+/*================#switch==================*/
+header .container #switch{
+    text-align: center;
+    margin-top: 100px;
+}
+header .container #switch button{
+    font-size: 25px;
+    padding: 10px;
+    margin-right: 15px;
+    border-radius: 20%;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+header .container #switch button:hover{
+    background-color: paleturquoise;
+}
+.footer a{
+    text-decoration: none;
+    cursor: grab;
+    color: whitesmoke;
+    
+}
+.footer{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+.copyText{
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 5px #ffffff;
+    border: 2px solid rgb(98, 180, 98);
+    cursor: copy;
+    width: 20%;
+}
+
+/*========================media=========================*/
+@media only screen and (max-width: 400px) {
+    .container{
+       
+        padding-top: 10px;
+        
+    }
+ 
+    header .container h1{
+        margin-bottom: 20px;
+        padding: 7px 0px;
+        font-size: 15px;
+      
+        box-shadow: 0px 7px 10px 4px white; 
+    }
+    header .container label{
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    header .container textarea{
+        font-size: 15px;
+      
+        margin-bottom: 10px;
+    }
+    header .container input{
+        width: 80px;
+        font-size: 15px;
+        margin-bottom: 15px;   
+        padding: 2px;
+    }
+  
+    header .container #calculate{
+        display: block;
+        width: 80px;
+        height: 30px;
+        margin-left: 10px;
+       
+        font-size: 15px;
+       
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px 1px #ffffff;
+       
+    }
+    header .container #erase{
+        display: block;
+        width: 80px;
+        height: 30px;
+        margin-left: 15px;
+        padding: 0px;
+        font-size: 15px;
+      
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px 1px #ffffff;
+      
+    }
+    header .container #encrypt #crypto-result {
+    
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /*======================de==================*/
+    
+    header .container #decypher{
+        display: block;
+        width: 80px;
+        height: 30px;
+        margin-left: 10px;
+     
+        font-size: 15px;
+       
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px 1px #ffffff;
+    }
+    header .container #erase2{
+        display: block;
+        width: 80px;
+        height: 30px;
+        margin-left: 15px;
+        padding: 0px;
+        font-size: 15px;
+      
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px 1px #ffffff;
+    }
+    header .container #decrypt #decrypto-result {
+        
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /*================#switch==================*/
+    
+    header .container #switch button{
+        font-size: 14px;
+        padding: 1px 4px;
+        margin-right: 15px;
+        border-radius: 20%;
+       
+        margin-bottom: 10px;
+    }
+    #footer{
+        text-align: center;
+        margin-top: 5px;
+        font-size: 10px;
+    }
+    .copyText{
+    font-size: 14px;
+    
+    width: 30%;
+}
+    
+  }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="switch">
+                <button id="en">lotin-kirill</button>
+                <button id="de">kirill-lotin</button>
+            </div>     
+<!-- lotin to kirill -->
+            <div id="encrypt">
+                <h1>Lotin yozuvidagi ma'lumotni kiriting :</h1>
+              
+                <textarea name="" id="original" cols="30" rows="10" 
+                placeholder="Shu yerga matn kiriting..."></textarea>              
+         
+                <div class="d-flex">                    
+                    <button id="calculate">O'girish</button>
+                    <button id="erase">Tozalash</button>
+                </div>
+                <label for="result">Natija :</label>            
+               
+                <p id="crypto-result">...</p>
+                <button class="copyText" onclick="copyTextCyrill()">Nusxa olish</button>
+
+                <div class="footer">
+                    &copy;<a href="https://t.me/Uroljon_Khidirboev" target="_blank">Uroljon Khidirboev </a> 2020 <br>
+                    <p>Agar xatolik topsangiz <a href="https://t.me/Uroljon_Khidirboev" target="_blank" style="color: rgb(0, 248, 41); padding-bottom: 10px;">shu yerga</a> murojaat qiling.</p>
+                </div>
+            </div>
+<!-- kirill to lotin -->
+            <div id="decrypt">
+                <h1>Кирилл ёзувидаги маълумотни киритинг :</h1>
+                
+                <textarea name="" id="encrypted" cols="30" rows="10" placeholder="масалан: салом "></textarea>  
+                
+                <div class="d-flex">                   
+                    <button id="decypher">Ўгириш</button>
+                    <button id="erase2">Тозалаш</button>
+                </div>
+
+                <label for="result">Натижа :</label>
+                <p id="decrypto-result">...</p>
+                <button class="copyText" onclick="copyTextLatin()">Нусха олиш</button>
+
+                <div class="footer">
+                    &copy;<a href="https://t.me/Uroljon_Khidirboev" target="_blank">Uroljon Khidirboev </a> 2020 <br>
+                    <p>Agar xatolik topsangiz <a href="https://t.me/Uroljon_Khidirboev" target="_blank" style="color: rgb(0, 248, 41); padding-bottom: 10px;">shu yerga</a> murojaat qiling.</p>
+                </div>
+            </div>
+            
+        </div>        
+    </header>
+  
+    <!-- <script src="main.js"></script> -->
+    <script>
+        var originalMessage;                 //kirill ga o'giriluvchi lotin xabari
+var CyrillicTranslated = "";         //kirill ga o'girilgan xabar
+
+var CyrillicMessage;                //lotin ga o'giriluvchi kirill xabari
+var LatinTranslated = "";           //lotin ga o'girilgan xabar
+
+let copyText1; //nusxalash uchun (lotin-kirill)
+let copyText2; //nusxalash uchun (kirill-lotin)
+
+var alpha = [ //kirill-lotin uchun lotin alfaviti
+'A',	'B',	'V',	'G',	'D',	'E',    'Yo',	'J',	'Z',	'I',	'Y',	'K',	'L',	'M',	'N',	'O',	'P',
+'R',	'S',	'T',	'U',	'F',	'X',	'Ts',	'Ch',	'Sh',	'Sh',	'\'',	'I',	 '',	'E',	'Yu',	'Ya',    'G\'',    'Q',    'H',    'O\'',
+'a',	'b',	'v',	'g',	'd',	'e',    'yo',	'j',	'z',	'i',	'y',	'k',	'l',	'm',	'n',	'o',	'p',
+'r',	's',	't',	'u',	'f',	'x',	'ts',	'ch',	'sh',	'sh',	'\'',	'i',	 '',	'e',	'yu',	'ya',    'g\'',    'q',    'h',    'o\'',
+    ];
+
+var alphaLatin = [ //lotin-kirill uchun lotin alfaviti
+'A',	'B',	'V',	'G',	'D',	'E',    '‡',	'J',	'Z',	'I',	'Y',	'K',	'L',	'M',	'N',	'O',	'P',
+'R',	'S',	'T',	'U',	'F',	'X',	'‡',	'‡',	'‡',	'‡',	'‡',	'‡',	'‡',	'‡',	'‡',	'‡',    '‡',    'Q',    'H',    '‡',
+'a',	'b',	'v',	'g',	'd',	'e',    '‡',	'j',	'z',	'i',	'y',	'k',	'l',	'm',	'n',	'o',	'p',
+'r',	's',	't',	'u',	'f',	'x',	'‡',	'‡',	'‡',	'‡',	'\'',	'‡',	'‡',	'‡',	'‡',	'‡',    '‡',    'q',    'h',    '‡',
+    ];
+var alphaRus = [ 
+'А',	'Б',	'В',	'Г',	'Д',	'Е',    'Ё',	'Ж',	'З',	'И',	'Й',	'К',	'Л',	'М',	'Н',	'О',	'П',
+'Р',	'С',	'Т',	'У',	'Ф',	'Х',	'Ц',	'Ч',	'Ш',	'Щ',	'Ъ',	'Ы',	'Ь',	'Э',	'Ю',	'Я',    'Ғ',    'Қ',    'Ҳ',    'Ў',
+'а',	'б',	'в',	'г',	'д',	'е',    'ё',	'ж',	'з',	'и',	'й',	'к',	'л',	'м',	'н',	'о',	'п',
+'р',	'с',	'т',	'у',	'ф',	'х',	'ц',	'ч',	'ш',	'щ',	'ъ',	'ы',	'ь',	'э',	'ю',	'я',    'ғ',    'қ',    'ҳ',    'ў',
+    ];
+
+
+/*=================kirillga o'girish=================== */
+
+document.getElementById('calculate').addEventListener("click", function(){
+        originalMessage = document.getElementById('original').value; /*original textni olyapti */ 
+        
+          /*avval bu harf birikmalar o'zgartirilsin : */
+        originalMessage = originalMessage.replace(/`/g,"\'");
+        originalMessage = originalMessage.replace(/ʹ/g,"\'");
+        originalMessage = originalMessage.replace(/ʻ/g,"\'");
+        originalMessage = originalMessage.replace(/ʼ/g,"\'");
+        originalMessage = originalMessage.replace(/ʽ/g,"\'");
+        originalMessage = originalMessage.replace(/ˊ/g,"\'");
+        originalMessage = originalMessage.replace(/ˋ/g,"\'");
+        originalMessage = originalMessage.replace(/‘/g,"\'");
+        //bu O' ning shapkasi. Har xil variantda tarjima qiladi :)
+
+        originalMessage = originalMessage.replace(/Ye/g,"Е");
+        originalMessage = originalMessage.replace(/YE/g,"Е");
+        originalMessage = originalMessage.replace(/Yo/g,"Ё");
+        originalMessage = originalMessage.replace(/YO/g,"Ё");
+        originalMessage = originalMessage.replace(/Ch/g,"Ч");
+        originalMessage = originalMessage.replace(/CH/g,"Ч");
+        originalMessage = originalMessage.replace(/Sh/g,"Ш");
+        originalMessage = originalMessage.replace(/SH/g,"Ш");
+        originalMessage = originalMessage.replace(/Yu/g,"Ю");
+        originalMessage = originalMessage.replace(/YU/g,"Ю");
+        originalMessage = originalMessage.replace(/Ya/g,"Я");
+        originalMessage = originalMessage.replace(/YA/g,"Я");
+        originalMessage = originalMessage.replace(/Ts/g,"Ц"); 
+        originalMessage = originalMessage.replace(/TS/g,"Ц"); 
+
+        originalMessage = originalMessage.replace(/G\'/g,"Ғ");
+        originalMessage = originalMessage.replace(/O\'/g,"Ў");
+
+        originalMessage = originalMessage.replace(/ye/g,"е");
+        originalMessage = originalMessage.replace(/yo/g,"ё");       
+        originalMessage = originalMessage.replace(/ch/g,"ч");
+        originalMessage = originalMessage.replace(/sh/g,"ш");
+        originalMessage = originalMessage.replace(/yu/g,"ю");
+        originalMessage = originalMessage.replace(/ya/g,"я");
+        originalMessage = originalMessage.replace(/ts/g,"ц");
+        originalMessage = originalMessage.replace(/g\'/g,"ғ");
+        originalMessage = originalMessage.replace(/o\'/g,"ў");
+
+        function Eliser(currentWord){//bu e harfini nastroyka qiladi ;)
+
+            if(currentWord[0]==='E'){
+                // currentWord.charAt(0) = 'Э'; or   currentWord[0] = 'э'; //this is read only ! u cant modify it :)
+                var E = currentWord.replace(/E/i, "Э");
+                //i means case insensitive. regular expressions are written without quotes. replace() method replaces only the first match                
+                return E;                  
+            }
+            else if(currentWord[0]==='e'){
+                var e = currentWord.replace(/e/i, "э");          
+                return e;
+            }       
+            else{
+                return currentWord;//shu bug ni deb aaancha vatim ketdi! Nega boshqa so'zlarni qaytarmaydi deyman-a yana :)
+            }
+        }
+        let letterE = originalMessage.split(' ').map(Eliser).join(' ');  
+        originalMessage = letterE;    
+        
+        encrypt(originalMessage);//keyin tarjima uchun yubor :)
+    });
+/*Tozalash tugmasi */
+document.getElementById('erase').addEventListener("click", function clear (){
+    document.getElementById('crypto-result').innerHTML = ' ';
+});
+
+/*kirillga o'girish algoritmi :*/
+function encrypt (string){   
+
+    /*asosiy kirill ga o'girish algoritmi */
+    for(var i=0; i<string.length; i++){
+        for (var j = 0; j<alphaLatin.length; j++){
+
+
+            if(string[i] == alphaLatin[j]){
+                CyrillicTranslated += alphaRus[j]; break;
+                        
+            }
+            /*simvollarni va shuningdek o'zi kirill alifbosidagi harflarni ham o'zgartirmaydi: */
+            else if( (string.charCodeAt(i)>=9 && string.charCodeAt(i)<=11) || (string.charCodeAt(i)>32 && string.charCodeAt(i)<39) ||(string.charCodeAt(i)>39 && string.charCodeAt(i)<=64) || (string.charCodeAt(i)>=91 && string.charCodeAt(i)<96 ) || (string.charCodeAt(i)>=123 && string.charCodeAt(i)<=1300 )){
+                CyrillicTranslated += string[i]; break;
+                // alert("son simvol topdi"); 
+            }
+           
+            else if (string.charCodeAt(i) === 32){ /* probelni necha bo'lsa shuncha qo'shadi :)*/
+                CyrillicTranslated += " ";  break;
+            }                             
+        }        
+    }
+
+    /*natijani chop etadi */
+    document.getElementById('crypto-result').innerText = CyrillicTranslated;
+    copyText1 = CyrillicTranslated; //clipboard uchun olib qo'ydim  
+    CyrillicTranslated = '';
+}
+/*cliboard uchun copy qiladi */
+function copyTextCyrill() {   
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = copyText1;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem); 
+  }  
+ 
+
+/*====================lotinga o'girish==============================*/
+
+/*original textni olyapti */ 
+document.getElementById('decypher').addEventListener("click", function(){
+    CyrillicMessage = document.getElementById('encrypted').value;  
+
+
+    function Eliser2(currentWord){//bu e harfini nastroyka qiladi ;)
+
+        if(currentWord[0]==='Е'){ //agar E bosh harfda Upper case bo'lib kelsa :           
+            for(let z = 0; z<currentWord.length; z++){
+                if(currentWord.charCodeAt(z)>=1040 && currentWord.charCodeAt(z)<=1071){
+                    var E = currentWord.replace(/Е/i, "YE"); //agar so'z upper case da bo'lsa, "YE" deb o'zgartir !                    
+                    return E;   
+                }
+                else{
+                    var E = currentWord.replace(/Е/i, "Ye"); //aks holda "Ye" deb o'zgartir !                    
+                    return E;   
+                }
+            }                        
+        }
+        else if(currentWord[0]==='е'){//agar e bosh harfda lower case bolib kelsa:
+            var e = currentWord.replace(/е/i, "ye");          
+            return e;
+        }       
+        else{
+            return currentWord;
+        }
+    }
+    let letterE2 = CyrillicMessage.split(" ").map(Eliser2).join(' ');
+    CyrillicMessage = letterE2; 
+
+    decrypt(CyrillicMessage);
+});
+/*Tozalash tugmasi */
+document.getElementById('erase2').addEventListener("click", function clear (){
+document.getElementById('decrypto-result').innerHTML = ' ';
+});
+
+/*lotinga o'girish algoritmi :*/
+function decrypt (string){
+
+for(var i=0; i<string.length; i++){ 
+    for (var j = 0; j<alphaRus.length; j++){
+        /* lotinchaga o'tkazadi*/
+        if(string[i] == alphaRus[j]){
+            LatinTranslated += alpha[j];                
+        }
+        /*simvollar va lotin alfavitidagi so'zlar o'girilmaydi */
+        else if((string.charCodeAt(i)>=9 && string.charCodeAt(i)<=11) || (string.charCodeAt(i)>32 && string.charCodeAt(i)<1000) || (string.charCodeAt(i)>1300)){
+            LatinTranslated += string[i]; break;
+        }
+        /* probelni necha bo'lsa shuncha qo'shadi :)*/
+        else if (string.charCodeAt(i) === 32){
+        LatinTranslated += " ";  break;
+      }       
+    }
+} 
+/*natijani chop etadi */
+document.getElementById('decrypto-result').innerText = LatinTranslated;
+copyText2 = LatinTranslated;
+LatinTranslated = '';
+}
+/*cliboard uchun copy qiladi */
+function copyTextLatin() {   
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = copyText2;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem); 
+  } 
+
+
+
+/*====================switch================*/
+document.getElementById('en').addEventListener("click", function(){
+    document.getElementById('encrypt').style.display = 'flex';
+    document.getElementById('encrypt').style.flexDirection = 'column';
+    this.style.backgroundColor = 'rgb(59, 67, 179)';
+    this.style.color = '#ffffff';
+    // document.getElementById('de').backgroundColor = 'rgb(228, 228, 228)';
+    document.getElementById('decrypt').style.display = 'none';
+    document.getElementById('switch').setAttribute('style', 'margin-top: 0px;');
+
+    // alert('hi');
+    
+});
+
+document.getElementById('de').addEventListener("click", function(){
+    document.getElementById('decrypt').style.display = 'flex';
+    document.getElementById('decrypt').style.flexDirection = 'column';
+    this.style.backgroundColor = 'rgb(59, 67, 179)';
+    this.style.color = '#ffffff';
+    // document.getElementById('en').backgroundColor = 'rgb(228, 228, 228)';
+    document.getElementById('encrypt').style.display = 'none';
+    document.getElementById('switch').setAttribute('style', 'margin-top: 0px;');
+    // alert("hello");
+});
+
+
+
+
+
+/* bu kirill alfabiti codi
+var salomat = "Ў o' G' g' Ҳ ҳ X x Q q Sh sh ch Ch  –«‘ЕʻғўA";
+for(var i=0; i<=salomat.length; i++){
+console.log(salomat.charCodeAt(i));
+}
+for(var i=1000; i<=1300; i++){
+    console.log(String.fromCharCode(i)+i);
+}
+
+*/
+/*  VM629:2 ʻ699   VM629:2 ʼ700   VM629:2 ʽ701  */
+    </script>
+   
+</body>
+</html>
+
