@@ -292,7 +292,7 @@ document.getElementById('de').addEventListener("click", function () {
     // alert("hello");
 });
 
-
+document.getElementById("sana").innerText = new Date().getFullYear()
 
 
 
