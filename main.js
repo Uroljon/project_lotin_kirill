@@ -292,7 +292,9 @@ document.getElementById('de').addEventListener("click", function () {
     // alert("hello");
 });
 
-document.getElementById("sana").innerText = new Date().getFullYear()
+document.querySelectorAll('sana').forEach((sana)=>{
+    sana.innerText = new Date().getFullYear()
+}); 
 
 /* bu kirill alfabiti codi
 var salomat = "Ў o' G' g' Ҳ ҳ X x Q q Sh sh ch Ch  –«‘ЕʻғўA";
