@@ -294,8 +294,6 @@ document.getElementById('de').addEventListener("click", function () {
 
 document.getElementById("sana").innerText = new Date().getFullYear()
 
-
-
 /* bu kirill alfabiti codi
 var salomat = "Ў o' G' g' Ҳ ҳ X x Q q Sh sh ch Ch  –«‘ЕʻғўA";
 for(var i=0; i<=salomat.length; i++){
@@ -307,6 +305,3 @@ console.log(String.fromCharCode(i)+i);
 
 */
 /*  VM629:2 ʻ699   VM629:2 ʼ700   VM629:2 ʽ701  */
-// for(let i=1040; i<=1080; i++){
-//     console.log(i + " - char = > " + String.fromCharCode(i))
-// }
